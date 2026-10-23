@@ -256,3 +256,63 @@ code { padding: 1px 4px; border-radius: 3px; background: var(--surface-alt); col
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+/* Keep the guide comfortable to read without changing its visual hierarchy. */
+body { font-size: 17px; }
+.top-nav { font-size: 14px; }
+.side-label { font-size: 10px; }
+.side-link { font-size: 14px; }
+.sidebar-note p { font-size: 13px; }
+.sidebar-note strong { font-size: 14px; }
+.sidebar-note small, .side-footer { font-size: 10px; }
+.hero-lede { font-size: 18px; }
+.button, .text-link { font-size: 14px; }
+.hero-proof { font-size: 12px; }
+.hero-proof b { font-size: 14px; }
+.stats-row b { font-size: 14px; }
+.stats-row small { font-size: 12px; }
+.section-heading p { font-size: 15px; }
+.module-card-top span:first-child { font-size: 11px; }
+.module-card h3 { font-size: 17px; }
+.module-card p { font-size: 14px; }
+.module-count { font-size: 11px; }
+.lesson-meta { font-size: 10px; }
+.lesson-main h3 { font-size: 19px; }
+.lesson-main > p { font-size: 15px; }
+.lesson-detail strong { font-size: 14px; }
+.lesson-detail p, .lesson-detail li { font-size: 14px; }
+pre { font-size: 12px; }
+.code-card pre { font-size: 12px; }
+.module-finish strong { font-size: 14px; }
+.module-finish p { font-size: 13px; }
+.shortcut-card > span { font-size: 10px; }
+.shortcut-card strong { font-size: 14px; }
+.shortcut-card small { font-size: 13px; }
+.shortcut-footnote { font-size: 13px; }
+.checklist-intro > p { font-size: 15px; }
+.checklist-intro a { font-size: 13px; }
+.check-group h3 { font-size: 17px; }
+.check-group > div > p, .check-items li { font-size: 14px; }
+code { font-size: 12px; }
+.example-card > p { font-size: 13px; }
+.dont-box p { font-size: 14px; }
+.dont-box strong { font-size: 10px; }
+.footer > span { font-size: 12px; }
+.search-empty { font-size: 14px; }
+
+@media (max-width: 620px) {
+  .hero-lede { font-size: 16px; }
+  .hero-proof { font-size: 11px; }
+  .stats-row small { font-size: 13px; }
+  .section-heading p { font-size: 14px; }
+  .module-card p { font-size: 14px; }
+  .lesson-main h3 { font-size: 17px; }
+  .lesson-main > p { font-size: 14px; }
+  .lesson-detail p, .lesson-detail li { font-size: 13px; }
+  pre { font-size: 11px; }
+  .code-card pre { font-size: 11px; }
+  .shortcut-card > span { font-size: 9px; }
+  .shortcut-card small { font-size: 12px; }
+  .check-group > div > p, .check-items li { font-size: 13px; }
+  .example-card > p { font-size: 12px; }
+}
