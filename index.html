@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" data-theme="system">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f4">
+    <meta name="description" content="A hands-on Flutter and Node.js learning path for building a production-ready fintech expense tracker.">
+    <title>Build &amp; Ship — Flutter + Backend Field Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Build and Ship home">
+        <span class="brand-icon" aria-hidden="true">b.</span>
+        <span>build<span class="brand-and">&amp;</span>ship</span>
+      </a>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#flutter-path">Flutter path</a>
+        <a href="#backend-path">Backend path</a>
+        <a href="#checklist">Field notes</a>
+      </nav>
+      <div class="top-actions">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="site-search" type="search" placeholder="Search the guide" aria-label="Search the guide">
+          <kbd>/</kbd>
+        </label>
+        <div class="theme-picker" role="group" aria-label="Display mode">
+          <button type="button" data-theme-choice="light" aria-label="Light mode" title="Light mode">☼</button>
+          <button type="button" data-theme-choice="dark" aria-label="Dark mode" title="Dark mode">☾</button>
+          <button type="button" data-theme-choice="system" aria-label="Use system theme" title="Use system theme">◐</button>
+        </div>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="Open navigation">☰</button>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <p class="side-label">YOUR FIELD GUIDE</p>
+        <a class="side-link active" href="#home"><span>◫</span> Start here</a>
+        <p class="side-label">LEARNING PATHS</p>
+        <a class="side-link" href="#flutter-path"><span>◈</span> Flutter, from UI to ship</a>
+        <a class="side-link" href="#backend-path"><span>⌘</span> Backend, end to end</a>
+        <p class="side-label">QUICK REFERENCE</p>
+        <a class="side-link" href="#shortcuts"><span>⌨</span> Flutter shortcuts</a>
+        <a class="side-link" href="#checklist"><span>✓</span> Build checklist</a>
+        <a class="side-link" href="#first-module"><span>↗</span> Topic 1: API foundations</a>
+        <div class="sidebar-note">
+          <span class="note-spark">✳</span>
+          <p><strong>One app. Every module.</strong><br>Build a real expense tracker as you learn.</p>
+          <span class="note-progress"><i></i></span>
+          <small>STARTING WITH THE FOUNDATIONS</small>
+        </div>
+        <p class="side-footer">MADE FOR THE LONG GAME <span>↗</span></p>
+      </div>
+    </aside>
+
+    <main id="main">
+      <section class="hero section-wrap" id="home">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR FLUTTER + BACKEND PLAYBOOK</div>
+          <h1>From “it works”<br>to <span>ready to ship.</span></h1>
+          <p class="hero-lede">A practical field guide to building a production-ready Flutter app—and the backend that powers it. Learn by building one real thing, one module at a time.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#first-module">Start with Topic 1 <span>↗</span></a>
+            <a class="text-link" href="#flutter-path">Explore the learning paths <span>↓</span></a>
+          </div>
+          <div class="hero-proof">
+            <span><b>14</b> Flutter modules</span><i></i><span><b>12</b> backend modules</span><i></i><span><b>1</b> app, end to end</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a mobile expense tracker and API connection">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-card">
+            <div class="art-card-top"><span class="art-avatar">◎</span><span>THIS MONTH <b>•••</b></span></div>
+            <div class="art-label">Total balance</div>
+            <div class="art-amount">$4,280<span>.50</span></div>
+            <div class="art-chart"><i style="height:30%"></i><i style="height:48%"></i><i style="height:38%"></i><i style="height:65%"></i><i style="height:49%"></i><i style="height:83%"></i><i style="height:69%"></i><i style="height:100%"></i><i style="height:75%"></i><i style="height:91%"></i><i style="height:71%"></i><i style="height:88%"></i></div>
+            <div class="art-chart-labels"><span>WEEK 1</span><span>WEEK 2</span><span>WEEK 3</span><span>WEEK 4</span></div>
+            <div class="art-transaction"><span class="transaction-icon">↗</span><span>Groceries <small>Today, 10:42</small></span><b>−$54.20</b></div>
+          </div>
+          <div class="api-pill"><span></span> API connected <b>200 OK</b></div>
+          <div class="flutter-sticker">◈ <span>FLUTTER<br>+ NODE.JS</span></div>
+          <span class="art-star star-one">✳</span><span class="art-star star-two">✳</span>
+        </div>
+      </section>
+
+      <section class="stats-row section-wrap" aria-label="Learning approach">
+        <div><span class="stat-icon">◎</span><p><b>Build by doing</b><small>Every concept ends with a real task.</small></p></div>
+        <div><span class="stat-icon">⌘</span><p><b>Two sides, one app</b><small>Flutter client + TypeScript API.</small></p></div>
+        <div><span class="stat-icon">↗</span><p><b>Production-minded</b><small>Patterns that hold up in the real world.</small></p></div>
+      </section>
+
+      <section class="path-section section-wrap" id="flutter-path">
+        <div class="section-heading">
+          <div><div class="eyebrow">01 / THE CLIENT</div><h2>Flutter, from UI to ship.</h2><p>Move from solid fundamentals to confident production releases.</p></div>
+          <span class="module-count">14 MODULES <span>↘</span></span>
+        </div>
+        <div class="module-grid" id="flutter-modules"></div>
+      </section>
+
+      <section class="path-section backend-section" id="backend-path">
+        <div class="section-wrap">
+          <div class="section-heading">
+            <div><div class="eyebrow">02 / THE SERVER</div><h2>Backend, end to end.</h2><p>Design an API, connect the app, and operate the service with care.</p></div>
+            <span class="module-count">12 MODULES <span>↘</span></span>
+          </div>
+          <div class="module-grid" id="backend-modules"></div>
+        </div>
+      </section>
+
+      <section class="first-module section-wrap" id="first-module">
+        <div class="section-heading">
+          <div><div class="eyebrow">START HERE / TOPIC 1</div><h2>How Flutter talks to a backend.</h2><p>Four building blocks. One clear contract between app and API.</p></div>
+          <span class="lesson-tag"><span></span> FIRST MODULE</span>
+        </div>
+        <div class="lesson-list">
+          <article class="lesson-card" id="lesson-rest">
+            <div class="lesson-number">01</div><div class="lesson-main"><div class="lesson-meta">FOUNDATIONS · 8 MIN</div><h3>REST: make a request, get a resource.</h3><p>REST uses HTTP methods and resource URLs to give the Flutter app a predictable way to work with transactions.</p><div class="lesson-detail"><strong>Under the hood</strong><p>Flutter sends a method, URL, headers and optional body. Express routes by method and path, runs middleware, calls a handler and returns an HTTP response. Requests are stateless: include required auth with each request.</p></div><div class="code-pair"><div class="code-card"><div class="code-label">NODE / EXPRESS</div><pre><code>app.get("/api/v1/transactions", (_req, res) =&gt; {
+  res.status(200).json({ data: [] });
+});</code></pre></div><div class="code-card"><div class="code-label">FLUTTER / DART</div><pre><code>final response = await http.get(
+  Uri.parse('$baseUrl/api/v1/transactions'),
+);
+if (response.statusCode != 200) {
+  throw Exception('Could not load');
+}</code></pre></div></div><div class="lesson-detail"><strong>Watch out for</strong><p>Don't change server state with GET. Use resource names, keep secrets out of URLs, set client timeouts and handle network failures visibly.</p><strong>Try it</strong><p>Build GET and POST transaction routes; call GET from a Flutter repository and render the result.</p><strong>Interview yourself</strong><ol><li>What makes an API resource-oriented?</li><li>Why is HTTP stateless?</li><li>When should an API use POST rather than PATCH?</li></ol></div></div><button class="lesson-toggle" type="button" aria-label="Collapse REST lesson" aria-expanded="true">−</button>
+          </article>
+          <article class="lesson-card" id="lesson-json">
+            <div class="lesson-number">02</div><div class="lesson-main"><div class="lesson-meta">DATA SHAPES · 7 MIN</div><h3>JSON: agree on the shape of a transaction.</h3><p>JSON is the language-neutral format that TypeScript can serialize and Dart can parse into a typed model.</p><div class="lesson-detail"><strong>Under the hood</strong><p>The API serializes an object to UTF-8 JSON. Flutter parses the bytes into dynamic values, then should map them at the boundary to a typed model. Treat every response as untrusted input.</p></div><div class="code-pair"><div class="code-card"><div class="code-label">NODE / TYPESCRIPT</div><pre><code>res.json({ data: {
+  id: "txn_123",
+  amountMinor: 1299,
+  currency: "USD",
+  note: "Coffee",
+} });</code></pre></div><div class="code-card"><div class="code-label">FLUTTER / DART</div><pre><code>factory Transaction.fromJson(
+  Map&lt;String, dynamic&gt; json,
+) =&gt; Transaction(
+  id: json['id'] as String,
+  amountMinor: json['amountMinor'] as int,
+  currency: json['currency'] as String,
+);</code></pre></div></div><div class="lesson-detail"><strong>Watch out for</strong><p>Money should be integer minor units plus currency—not floating point. Use explicit UTC timestamps, parse into typed models and plan for new optional fields.</p><strong>Try it</strong><p>Define a transaction DTO with id, amountMinor, currency, occurredAt and nullable note. Parse and render it in Flutter; test a missing required field.</p><strong>Interview yourself</strong><ol><li>Why are floating-point amounts risky?</li><li>Why parse JSON at an app boundary?</li><li>How should an old client handle an unknown enum?</li></ol></div></div><button class="lesson-toggle" type="button" aria-label="Collapse JSON lesson" aria-expanded="true">−</button>
+          </article>
+          <article class="lesson-card" id="lesson-status">
+            <div class="lesson-number">03</div><div class="lesson-main"><div class="lesson-meta">RELIABLE APIs · 7 MIN</div><h3>Status codes: tell the client what happened.</h3><p>A meaningful status and a consistent error body let the app respond correctly to invalid input, auth problems and server failures.</p><div class="lesson-detail"><strong>Under the hood</strong><p>2xx indicates success, 4xx a request/client problem, 5xx an unexpected server issue. Network failures like DNS errors have no HTTP response and need their own handling.</p></div><div class="code-pair"><div class="code-card"><div class="code-label">NODE / EXPRESS</div><pre><code>return res.status(400).json({
+  error: {
+    code: "INVALID_AMOUNT",
+    message: "Amount must be positive",
+  },
+});</code></pre></div><div class="code-card"><div class="code-label">FLUTTER / DART</div><pre><code>if (response.statusCode == 400) {
+  throw const FormatException(
+    'Check the transaction details',
+  );
+}
+if (response.statusCode == 401) {
+  // Follow the app's auth flow.
+}</code></pre></div></div><div class="lesson-detail"><strong>Watch out for</strong><p>Use 201 for a created resource; don't hide errors in a 200 body. Never leak stack traces. Avoid blindly retrying POST requests that could duplicate writes.</p><strong>Try it</strong><p>Return a stable error code for invalid input. In Flutter, show a friendly validation message and distinguish an offline error.</p><strong>Interview yourself</strong><ol><li>What's the difference between 401 and 403?</li><li>How is offline different from an HTTP error?</li><li>Why might retrying POST duplicate a transaction?</li></ol></div></div><button class="lesson-toggle" type="button" aria-label="Collapse status code lesson" aria-expanded="true">−</button>
+          </article>
+          <article class="lesson-card" id="lesson-openapi">
+            <div class="lesson-number">04</div><div class="lesson-main"><div class="lesson-meta">SHARED CONTRACT · 10 MIN</div><h3>OpenAPI: make the agreement visible.</h3><p>A machine-readable API contract keeps mobile and backend development aligned, even when deployed clients lag behind the server.</p><div class="lesson-detail"><strong>Under the hood</strong><p>OpenAPI describes endpoints, schemas and responses; tooling can generate docs or client types. The specification alone doesn't validate runtime data: tests and server validation still matter.</p></div><div class="code-pair"><div class="code-card"><div class="code-label">OPENAPI / YAML</div><pre><code>paths:
+  /api/v1/transactions:
+    get:
+      responses:
+        "200":
+          description: Transactions loaded
+          content:
+            application/json:
+              schema:
+                type: object</code></pre></div><div class="code-card"><div class="code-label">FLUTTER / REPOSITORY</div><pre><code>final response = await client.get(uri);
+if (response.statusCode != 200) {
+  throw ApiException.fromResponse(response);
+}
+final body = jsonDecode(response.body);
+return parseTransactions(body);</code></pre></div></div><div class="lesson-detail"><strong>Watch out for</strong><p>Document nullability, errors and dates—not just URLs. Prefer additive compatible changes. Generated types don't replace validation or integration tests.</p><strong>Try it</strong><p>Specify GET and POST transactions, input validation and errors in OpenAPI. Test Express and the Flutter repository against the contract.</p><strong>Interview yourself</strong><ol><li>What does OpenAPI provide beyond docs?</li><li>Which changes preserve compatibility with old clients?</li><li>Why do generated types not replace server validation?</li></ol></div></div><button class="lesson-toggle" type="button" aria-label="Collapse OpenAPI lesson" aria-expanded="true">−</button>
+          </article>
+        </div>
+        <div class="module-finish"><span>✳</span><div><strong>Done with Topic 1? Prove it.</strong><p>Write the contract, ship both endpoints, connect the app, then test the unhappy paths too.</p></div><span class="finish-arrow">↗</span></div>
+      </section>
+
+      <section class="quick-section" id="shortcuts">
+        <div class="section-wrap">
+          <div class="section-heading"><div><div class="eyebrow">YOUR POCKET REFERENCE</div><h2>Flutter shortcuts that save a few keystrokes.</h2><p>VS Code defaults. On macOS, swap <kbd>Ctrl</kbd> for <kbd>⌘</kbd> where applicable.</p></div></div>
+          <div class="shortcut-grid">
+            <div class="shortcut-card"><span>COMMAND PALETTE</span><strong><kbd>Ctrl</kbd> <i>+</i> <kbd>Shift</kbd> <i>+</i> <kbd>P</kbd></strong><small>Find Flutter commands, settings, and actions.</small></div>
+            <div class="shortcut-card"><span>QUICK FIX / REFACTOR</span><strong><kbd>Ctrl</kbd> <i>+</i> <kbd>.</kbd></strong><small>Wrap widgets, extract methods, fix diagnostics.</small></div>
+            <div class="shortcut-card"><span>FORMAT DOCUMENT</span><strong><kbd>Shift</kbd> <i>+</i> <kbd>Alt</kbd> <i>+</i> <kbd>F</kbd></strong><small>Format Dart code to project conventions.</small></div>
+            <div class="shortcut-card"><span>GO TO DEFINITION</span><strong><kbd>F12</kbd></strong><small>Jump to a widget, class, or method definition.</small></div>
+            <div class="shortcut-card"><span>FIND IN FILE</span><strong><kbd>Ctrl</kbd> <i>+</i> <kbd>F</kbd></strong><small>Search the current file without losing focus.</small></div>
+            <div class="shortcut-card"><span>HOT RELOAD</span><strong><kbd>Ctrl</kbd> <i>+</i> <kbd>F5</kbd></strong><small>Start debugging; press <kbd>r</kbd> in terminal to hot reload.</small></div>
+          </div>
+          <p class="shortcut-footnote">Shortcuts can vary by keymap and OS. Find the exact binding in VS Code's Keyboard Shortcuts: <kbd>Ctrl</kbd> <i>+</i> <kbd>K</kbd>, then <kbd>Ctrl</kbd> <i>+</i> <kbd>S</kbd>.</p>
+        </div>
+      </section>
+
+      <section class="checklist-section section-wrap" id="checklist">
+        <div class="checklist-intro"><div class="eyebrow">BEFORE YOU CALL IT DONE</div><h2>Keep in mind while developing.</h2><p>A working screen is the start. Build with constraints, failure states, and the next person who has to maintain it in mind.</p><a href="#layout-rules">Jump to layout essentials <span>↓</span></a></div>
+        <div class="checklist-content">
+          <article class="check-group" id="layout-rules"><div class="check-group-icon">▤</div><div><h3>Layout follows constraints.</h3><p>Flutter constraints flow down, sizes flow up, and parents position children. Reason from the parent before tweaking the child.</p><ul class="check-items"><li><span>✓</span><span>Give flexible <code>Row</code> content finite width. In a bounded <code>Column</code>, use <code>crossAxisAlignment: CrossAxisAlignment.stretch</code> when children should fill its available width.</span></li><li><span>✓</span><span>Wrap long text in <code>Expanded</code> or <code>Flexible</code> inside a <code>Row</code>; choose wrapping or ellipsis intentionally.</span></li><li><span>✓</span><span>Use scrollable content when it may exceed available height. Avoid <code>Expanded</code> in an unbounded scroll direction.</span></li><li><span>✓</span><span>Use <code>LayoutBuilder</code> for local parent constraints—not fixed device widths.</span></li></ul><div class="example-card"><div class="code-label">ROW INSIDE A BOUNDED COLUMN</div><pre><code>Column(
+  crossAxisAlignment: CrossAxisAlignment.stretch,
+  children: [
+    Row(
+      children: [
+        const Icon(Icons.receipt_long),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Text(
+            transaction.merchant,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        Text(transaction.formattedAmount),
+      ],
+    ),
+  ],
+)</code></pre><p><strong>Why this works:</strong> the column fills its bounded width; <code>Expanded</code> gives the merchant text only the remaining horizontal space. If the parent gives the column unbounded width, constrain that first.</p></div></div></article>
+          <article class="check-group"><div class="check-group-icon">◈</div><div><h3>State and lifecycle stay predictable.</h3><ul class="check-items"><li><span>✓</span><span>Keep <code>build</code> fast and side-effect free; start I/O from a lifecycle or state layer.</span></li><li><span>✓</span><span>Place state at the lowest common ancestor that needs it. Separate transient UI state from server state.</span></li><li><span>✓</span><span>After an <code>await</code>, check <code>context.mounted</code> before using context to navigate or show UI.</span></li><li><span>✓</span><span>Use keys when identity matters, such as reordered stateful list items—not everywhere by default.</span></li></ul></div></article>
+          <article class="check-group"><div class="check-group-icon">⌁</div><div><h3>Treat the network as unreliable.</h3><ul class="check-items"><li><span>✓</span><span>Keep HTTP behind a repository or client boundary, not inside widget build methods.</span></li><li><span>✓</span><span>Represent loading, success, empty, and failure states explicitly.</span></li><li><span>✓</span><span>Set request timeouts; handle HTTP errors separately from offline and transport failures.</span></li><li><span>✓</span><span>Don't retry non-idempotent writes blindly; protect against duplicate transactions.</span></li><li><span>✓</span><span>Keep secrets out of the app; validate inputs on the server too.</span></li></ul></div></article>
+          <article class="check-group"><div class="check-group-icon">◎</div><div><h3>Review like a user—and like an engineer.</h3><ul class="check-items"><li><span>✓</span><span>Test narrow screens, large text, long names, empty lists, loading and failures.</span></li><li><span>✓</span><span>Check accessibility labels, contrast, tap targets, keyboard and focus behavior.</span></li><li><span>✓</span><span>Run formatter, analyzer, and targeted tests; check there are no overflow or unbounded-flex exceptions.</span></li><li><span>✓</span><span>Make sure API field names, nullability, codes, and errors agree with the contract.</span></li></ul></div></article>
+          <div class="dont-box"><strong>DON'T SHIP THESE SHORTCUTS</strong><p>Don't assume a <code>Row</code> wraps. Don't hardcode screen widths. Don't silence overflow warnings without deciding how content adapts. Don't trust client validation as security.</p></div>
+        </div>
+      </section>
+      <footer class="footer"><a class="brand" href="#home"><span class="brand-icon">b.</span><span>build<span class="brand-and">&amp;</span>ship</span></a><span>Learn a little. Ship a little. Repeat.</span><a href="#home">BACK TO TOP ↑</a></footer>
+      <div class="search-empty" id="search-empty" hidden>No matching sections. Try another search.</div>
+    </main>
+  </body>
+</html>
