@@ -227,6 +227,7 @@ code { padding: 1px 4px; border-radius: 3px; background: var(--surface-alt); col
   .top-nav { margin-left: 35px; }.hero { grid-template-columns: 1fr 1fr; }
   .section-wrap { width: calc(100% - 52px); }.module-grid { grid-template-columns: repeat(2, 1fr); }
   .checklist-section { grid-template-columns: minmax(0, 1fr); gap: 35px; }.checklist-intro { position: static; }
+  .important-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
   :root { --topbar-height: 62px; }
@@ -245,6 +246,10 @@ code { padding: 1px 4px; border-radius: 3px; background: var(--surface-alt); col
   .path-section { padding-block: 64px; }.section-heading { align-items: start; }.section-heading h2, .checklist-intro h2 { font-size: 31px; letter-spacing: -1.5px; }
   .module-count { gap: 6px; font-size: 8px; }.module-count span { width: 23px; height: 23px; }
   .module-grid { grid-template-columns: 1fr; gap: 9px; }.module-card { min-height: auto; padding: 15px; }.module-card h3 { margin-top: 10px; }
+  .cheatsheet-section { padding-block: 58px; }.cheatsheet-grid { grid-template-columns: 1fr; gap: 10px; }.cheat-card { padding: 17px; }.cheat-card h3 { font-size: 17px; }
+  .cheat-card > p { font-size: 14px; }.cheat-card pre { max-height: 260px; padding: 12px; font-size: 11px; }.cheat-tip { font-size: 13px; }
+  .important-section { padding-block: 62px; }.important-heading h2 { font-size: 31px; letter-spacing: -1.5px; }.important-heading > p { font-size: 15px; }
+  .important-grid { grid-template-columns: 1fr; gap: 9px; }.important-card { padding: 16px; }.important-card h3 { font-size: 17px; }.important-card > p { font-size: 14px; }.important-tag { font-size: 10px; }.important-callout p { font-size: 14px; }
   .backend-section .section-wrap { padding-block: 60px; }
   .first-module { padding-block: 65px; }.lesson-tag { font-size: 8px; }.lesson-card { grid-template-columns: 25px 1fr 27px; gap: 8px; padding-inline: 0; }
   .lesson-main h3 { font-size: 15px; }.code-pair { grid-template-columns: 1fr; }.code-card pre { font-size: 9px; }
@@ -284,6 +289,32 @@ body { font-size: 18px; }
 pre, .code-card pre { font-size: 13px; }
 .module-finish strong { font-size: 15px; }
 .module-finish p { font-size: 14px; }
+.cheatsheet-section { padding: 78px 0 84px; background: var(--surface-alt); }
+.cheatsheet-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.cheat-card { min-width: 0; padding: 21px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+.cheat-card-heading { display: flex; align-items: center; gap: 12px; }
+.cheat-icon { display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; border-radius: 9px; background: var(--surface-green); color: var(--green); font-size: 18px; }
+.cheat-kicker { color: var(--green); font: 10px "DM Mono", monospace; letter-spacing: .8px; }
+.cheat-card h3 { margin: 4px 0 0; font: 700 18px Manrope, sans-serif; letter-spacing: -.3px; }
+.cheat-card > p { margin: 14px 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.cheat-card pre { max-height: 290px; overflow: auto; padding: 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--code); font-size: 12px; line-height: 1.8; }
+.cheat-tip { display: block; margin-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.important-section { padding-top: 88px; padding-bottom: 88px; }
+.important-heading { max-width: 660px; margin-bottom: 27px; }
+.important-heading h2 { margin: 10px 0 9px; font-size: clamp(30px, 3vw, 40px); line-height: 1.15; }
+.important-heading > p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.important-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.important-card { min-width: 0; padding: 18px 17px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.important-number { color: var(--green); font: 11px "DM Mono", monospace; }
+.important-card h3 { margin: 13px 0 8px; font: 700 16px Manrope, sans-serif; letter-spacing: -.25px; }
+.important-card > p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.important-card > code { display: inline-block; margin-top: 14px; line-height: 1.9; }
+.important-card pre { margin-top: 11px; border: 1px solid var(--line); border-radius: 5px; background: var(--code); font-size: 11px; }
+.important-tag { display: inline-block; margin-top: 15px; color: var(--subtle); font: 9px "DM Mono", monospace; letter-spacing: .5px; }
+.important-callout { display: flex; align-items: start; gap: 12px; margin-top: 15px; padding: 16px 18px; border: 1px solid #d8e3d4; border-radius: 8px; background: var(--surface-green); }
+.important-callout > span { color: var(--green); font-size: 18px; }
+.important-callout p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.important-callout strong { color: var(--text); }
 .shortcut-card > span { font-size: 11px; }
 .shortcut-card strong { font-size: 15px; }
 .shortcut-card small { font-size: 14px; }
@@ -313,4 +344,25 @@ code { font-size: 13px; }
   .shortcut-card small { font-size: 13px; }
   .check-group > div > p, .check-items li { font-size: 14px; }
   .example-card > p { font-size: 13px; }
+}
+
+@media (max-width: 850px) {
+  .important-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .cheatsheet-section { padding-block: 58px; }
+  .cheatsheet-grid, .important-grid { grid-template-columns: minmax(0, 1fr); }
+  .cheat-card { padding: 17px; }
+  .cheat-card h3 { font-size: 17px; }
+  .cheat-card > p { font-size: 14px; }
+  .cheat-card pre { max-height: 260px; padding: 12px; font-size: 11px; }
+  .cheat-tip { font-size: 13px; }
+  .important-section { padding-block: 62px; }
+  .important-heading h2 { font-size: 31px; letter-spacing: -1.5px; }
+  .important-heading > p { font-size: 15px; }
+  .important-card h3 { font-size: 17px; }
+  .important-card > p { font-size: 14px; }
+  .important-tag { font-size: 10px; }
+  .important-callout p { font-size: 14px; }
 }

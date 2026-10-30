@@ -47,6 +47,8 @@
         <a class="side-link" href="#flutter-path"><span>◈</span> Flutter, from UI to ship</a>
         <a class="side-link" href="#backend-path"><span>⌘</span> Backend, end to end</a>
         <p class="side-label">QUICK REFERENCE</p>
+        <a class="side-link" href="#cheatsheet"><span>⌗</span> Flutter cheat sheet</a>
+        <a class="side-link" href="#dev-points"><span>✳</span> Important dev points</a>
         <a class="side-link" href="#shortcuts"><span>⌨</span> Flutter shortcuts</a>
         <a class="side-link" href="#checklist"><span>✓</span> Build checklist</a>
         <a class="side-link" href="#first-module"><span>↗</span> Topic 1: API foundations</a>
@@ -178,6 +180,171 @@ return parseTransactions(body);</code></pre></div></div><div class="lesson-detai
           </article>
         </div>
         <div class="module-finish"><span>✳</span><div><strong>Done with Topic 1? Prove it.</strong><p>Write the contract, ship both endpoints, connect the app, then test the unhappy paths too.</p></div><span class="finish-arrow">↗</span></div>
+      </section>
+
+      <section class="cheatsheet-section" id="cheatsheet">
+        <div class="section-wrap">
+          <div class="section-heading">
+            <div><div class="eyebrow">KEEP THIS CLOSE</div><h2>Flutter cheat sheet.</h2><p>Everyday patterns for layouts, async work, models, and running your app.</p></div>
+          </div>
+          <div class="cheatsheet-grid">
+            <article class="cheat-card searchable" data-search="flutter cheat sheet layout expanded flexible row column constraints responsive layoutbuilder">
+              <div class="cheat-card-heading"><span class="cheat-icon">▤</span><div><span class="cheat-kicker">LAYOUT</span><h3>Give a Row child room to behave.</h3></div></div>
+              <p>Constrain flexible text to the remaining width so it cannot push its siblings off screen.</p>
+              <pre><code>Row(
+  children: [
+    const Icon(Icons.receipt),
+    const SizedBox(width: 8),
+    Expanded(
+      child: Text(
+        title,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
+    ),
+    const Icon(Icons.chevron_right),
+  ],
+)</code></pre>
+              <span class="cheat-tip">Use <code>Flexible</code> if the child may be smaller without filling all remaining space.</span>
+            </article>
+            <article class="cheat-card searchable" data-search="flutter cheat sheet async await future mounted context loading error state">
+              <div class="cheat-card-heading"><span class="cheat-icon">⌁</span><div><span class="cheat-kicker">ASYNC + LIFECYCLE</span><h3>Await safely before using context.</h3></div></div>
+              <p>Check that the widget still exists after an async gap before navigation or showing UI.</p>
+              <pre><code>Future&lt;void&gt; save() async {
+  await repository.save(item);
+  if (!mounted) return;
+  ScaffoldMessenger.of(context)
+      .showSnackBar(
+        const SnackBar(content: Text('Saved')),
+      );
+}</code></pre>
+              <span class="cheat-tip">In a <code>State</code> object use <code>mounted</code>; with a recent Flutter <code>BuildContext</code>, use <code>context.mounted</code>.</span>
+            </article>
+            <article class="cheat-card searchable" data-search="flutter cheat sheet immutable model factory json serialization parsing">
+              <div class="cheat-card-heading"><span class="cheat-icon">⌘</span><div><span class="cheat-kicker">DATA MODEL</span><h3>Parse JSON at the boundary.</h3></div></div>
+              <p>Turn untrusted decoded JSON into typed data once, rather than spreading <code>dynamic</code> through widgets.</p>
+              <pre><code>class Expense {
+  const Expense({
+    required this.id,
+    required this.amountMinor,
+  });
+
+  final String id;
+  final int amountMinor;
+
+  factory Expense.fromJson(
+    Map&lt;String, dynamic&gt; json,
+  ) =&gt; Expense(
+    id: json['id'] as String,
+    amountMinor: json['amountMinor'] as int,
+  );
+}</code></pre>
+              <span class="cheat-tip">Store money as integer minor units with an explicit currency; format it only for display.</span>
+            </article>
+            <article class="cheat-card searchable" data-search="flutter cheat sheet futurebuilder future async loading error empty data">
+              <div class="cheat-card-heading"><span class="cheat-icon">◷</span><div><span class="cheat-kicker">ASYNC UI</span><h3>Render every Future state.</h3></div></div>
+              <p>A <code>FutureBuilder</code> is useful for a one-off future; create and retain the future outside <code>build</code>.</p>
+              <pre><code>FutureBuilder&lt;List&lt;Expense&gt;&gt;(
+  future: expensesFuture,
+  builder: (context, snapshot) {
+    if (snapshot.hasError) {
+      return const ErrorView();
+    }
+    if (!snapshot.hasData) {
+      return const CircularProgressIndicator();
+    }
+    final expenses = snapshot.data!;
+    if (expenses.isEmpty) {
+      return const EmptyExpensesView();
+    }
+    return ExpenseList(expenses: expenses);
+  },
+)</code></pre>
+              <span class="cheat-tip">For interactive or shared app state, prefer your chosen state-management pattern.</span>
+            </article>
+            <article class="cheat-card searchable" data-search="flutter cheat sheet commands flutter doctor pub get analyze test run build apk">
+              <div class="cheat-card-heading"><span class="cheat-icon">⌗</span><div><span class="cheat-kicker">CLI / DAILY LOOP</span><h3>Know your Flutter commands.</h3></div></div>
+              <p>Run the checks that catch configuration, analyzer, and regression problems before shipping.</p>
+              <pre><code>flutter doctor -v
+flutter pub get
+dart format .
+flutter analyze
+flutter test
+flutter run
+flutter build appbundle --release</code></pre>
+              <span class="cheat-tip">Run <code>flutter doctor -v</code> when toolchains or device setup fail; use <code>flutter test</code> before merging.</span>
+            </article>
+            <article class="cheat-card searchable" data-search="flutter cheat sheet navigation navigator push pop routes go router">
+              <div class="cheat-card-heading"><span class="cheat-icon">↗</span><div><span class="cheat-kicker">NAVIGATION</span><h3>Push a screen; return a result.</h3></div></div>
+              <p>The built-in Navigator is handy for a small example. Use the app's router for real route policy and deep links.</p>
+              <pre><code>final result = await Navigator.push&lt;bool&gt;(
+  context,
+  MaterialPageRoute(
+    builder: (_) =&gt; const EditExpensePage(),
+  ),
+);
+
+if (!context.mounted) return;
+if (result == true) refreshExpenses();</code></pre>
+              <span class="cheat-tip">Use named, typed routes in the routing solution your app has adopted; don't scatter navigation rules through widgets.</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="important-section section-wrap" id="dev-points">
+        <div class="important-heading">
+          <div class="eyebrow">FIELD NOTES / BEFORE YOU SHIP</div>
+          <h2>Important points for building Flutter apps.</h2>
+          <p>Small decisions that keep an app maintainable, testable, and kind to its users.</p>
+        </div>
+        <div class="important-grid">
+          <article class="important-card searchable" data-search="flutter important architecture feature first repository dependency injection separation layers">
+            <span class="important-number">01</span><h3>Organize by feature.</h3>
+            <p>Keep screens, state, models, and data access for a feature together. Introduce abstraction when it clarifies a boundary, not just to add layers.</p>
+            <code>features/expenses/{data,domain,presentation}</code>
+          </article>
+          <article class="important-card searchable" data-search="flutter important state management choose simple setstate provider riverpod bloc">
+            <span class="important-number">02</span><h3>Choose state deliberately.</h3>
+            <p>Use <code>setState</code> for local ephemeral UI state. Adopt Provider, Riverpod, or Bloc when sharing state or coordinating app behavior needs it.</p>
+            <span class="important-tag">DON'T ADD GLOBAL STATE BY DEFAULT</span>
+          </article>
+          <article class="important-card searchable" data-search="flutter important api configuration environments secrets keys endpoint flavors">
+            <span class="important-number">03</span><h3>Separate app environments.</h3>
+            <p>Use explicit dev, staging, and production configuration. A value bundled in a mobile app is not a secret—keep private keys on the server.</p>
+            <span class="important-tag">CONFIGURE, DON'T HARDCODE</span>
+          </article>
+          <article class="important-card searchable" data-search="flutter important dispose controllers subscriptions timers animation memory leaks lifecycle">
+            <span class="important-number">04</span><h3>Dispose what you own.</h3>
+            <p>Dispose controllers and animation controllers; cancel subscriptions and timers when their owner is disposed.</p>
+            <pre><code>@override
+void dispose() {
+  controller.dispose();
+  super.dispose();
+}</code></pre>
+          </article>
+          <article class="important-card searchable" data-search="flutter important accessibility semantics labels contrast touch target text scale localization">
+            <span class="important-number">05</span><h3>Build for real people.</h3>
+            <p>Support text scaling, screen readers, contrast, localization, and comfortable touch targets. Avoid color as the only signal.</p>
+            <span class="important-tag">CHECK ACCESSIBILITY ON DEVICE</span>
+          </article>
+          <article class="important-card searchable" data-search="flutter important tests unit widget integration critical flows mocks api">
+            <span class="important-number">06</span><h3>Test behavior, not implementation.</h3>
+            <p>Unit-test business rules; widget-test loading, empty, error, and success states; integration-test important end-to-end flows.</p>
+            <span class="important-tag">TEST THE FAILURE PATH, TOO</span>
+          </article>
+          <article class="important-card searchable" data-search="flutter important performance profile devtools release builds lists lazy const rebuild">
+            <span class="important-number">07</span><h3>Measure before optimizing.</h3>
+            <p>Profile in a profile or release build. Use lazy lists for long collections and DevTools to investigate rebuilds and memory.</p>
+            <span class="important-tag">DEVTOOLS → PERFORMANCE + MEMORY</span>
+          </article>
+          <article class="important-card searchable" data-search="flutter important errors crashes logging crashlytics sentry privacy">
+            <span class="important-number">08</span><h3>Make failures diagnosable.</h3>
+            <p>Show useful recovery guidance, report unexpected errors, and remove personal or financial data from logs and crash reports.</p>
+            <span class="important-tag">OBSERVE WITHOUT LEAKING DATA</span>
+          </article>
+        </div>
+        <div class="important-callout"><span>✳</span><p><strong>Fintech reminder</strong> Never trust values from the app for authorization or balances. Validate every operation on the server, store tokens securely, and avoid logging credentials or transaction details.</p></div>
       </section>
 
       <section class="quick-section" id="shortcuts">

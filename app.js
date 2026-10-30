@@ -97,7 +97,7 @@ sidebar.querySelectorAll(".side-link").forEach((link) => {
 const searchInput = document.querySelector("#site-search");
 const searchEmpty = document.querySelector("#search-empty");
 const searchableSections = [...document.querySelectorAll(
-  ".hero, .stats-row, .path-section, .backend-section, .first-module, .quick-section, .checklist-section, .footer",
+  ".hero, .stats-row, .path-section, .backend-section, .first-module, .cheatsheet-section, .important-section, .quick-section, .checklist-section, .footer",
 )];
 searchInput.addEventListener("input", () => {
   const query = searchInput.value.trim().toLowerCase();

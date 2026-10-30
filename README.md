@@ -6,6 +6,7 @@ An interactive learning website and monorepo scaffold for building one applicati
 - `flutter_app/`: Flutter mobile client.
 - `modules/`: one set of learning notes per concept/module.
 - `index.html`, `styles.css`, and `app.js`: searchable learning guide with light, dark, and system display modes.
+- The guide includes a Flutter cheat sheet, development and release reminders, editor shortcuts, and a layout-focused code review checklist.
 
 ## Open the learning website
 
